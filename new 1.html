@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine?</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(#b37cff, #f7c6ff);
+  text-align: center;
+  color: #4b0055;
+}
+
+.page {
+  display: none;
+  padding: 40px;
+}
+
+.active {
+  display: block;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#yesBtn {
+  background: #ff69b4;
+  color: white;
+}
+
+#noBtn {
+  background: #ccc;
+  position: absolute;
+}
+
+.tiles {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.tile {
+  width: 150px;
+  height: 150px;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 20px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.paper {
+  background: #fffaf0;
+  padding: 30px;
+  width: 60%;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.notes {
+  position: relative;
+  margin-top: 30px;
+}
+
+.note {
+  background: #fff3b0;
+  padding: 15px;
+  width: 150px;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.top-left { top: -40px; left: 10%; }
+.top-right { top: -40px; right: 10%; }
+.bottom-left { bottom: -40px; left: 10%; }
+.bottom-right { bottom: -40px; right: 10%; }
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+  <h1>Will you be my Valentine? 💜</h1>
+  <p>(Imagine a purple Mercedes A45 AMG parked behind us 😌)</p>
+
+  <button id="yesBtn" onclick="showPage('pageYes')">YESSSS!</button>
+  <button id="noBtn">NO</button>
+</div>
+
+<!-- YES PAGE -->
+<div id="pageYes" class="page">
+  <h2>🤍 OMG, you said yes! 🤍</h2>
+  <p>🧍‍♂️🌹 (Stick figure holding a rose)</p>
+
+  <div class="tiles">
+    <div class="tile" onclick="showPage('photo')">📸 Photo Booth</div>
+    <div class="tile" onclick="showPage('letter')">💌 Letter</div>
+    <div class="tile" onclick="showPage('gift')">🎁 Gift Box</div>
+  </div>
+</div>
+
+<!-- PHOTO PAGE -->
+<div id="photo" class="page">
+  <h1>FOREVER TOGETHER</h1>
+  <p>[Place your video here later]</p>
+  <div style="border:6px solid #ff69b4; padding:15px; border-radius:20px; display:inline-block;">
+  <video width="450" autoplay loop muted controls playsinline>
+    <source src="us.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+  <div class="paper">
+    We've shared so many special memories together Faith, and I can't wait to create many more! 💕
+  </div>
+
+  <button onclick="showPage('letter')">Next ➜</button>
+</div>
+
+<!-- LETTER PAGE -->
+<div id="letter" class="page">
+  <h1>WORDS FROM MY HEART</h1>
+
+  <div class="paper">
+    <p><strong>Dear Faith Phasha</strong></p>
+
+    <p>
+      I just wanted to remind you how much you mean to me.
+      Everyday with you feels warmer, brighter, and a little more magical.
+    </p>
+
+    <p>
+      Thank you for the laughs, the late nights, and the quiet moments in between.
+      And most importantly thank you for your soft love.
+      No matter where life takes us, you are my favorite place to return to.
+    </p>
+
+    <p>I'm so grateful for you. Always!</p>
+
+    <p>I love you so much mmePhasha 💜</p>
+  </div>
+
+  <button onclick="showPage('gift')">Next ➜</button>
+</div>
+
+<!-- GIFT PAGE -->
+<div id="gift" class="page">
+  <h1>FLOWERS FOR MY LOVE</h1>
+  <h2>💐💐💐</h2>
+
+  <div class="notes">
+    <div class="note top-left">I think about you everyday</div>
+    <div class="note top-right">I will never leaf you</div>
+    <div class="note bottom-left">My heart rose when I saw you</div>
+    <div class="note bottom-right">I love you bunches</div>
+  </div>
+
+  <p style="margin-top:120px;">Thank you for your time. Enjoy your day. Kisses 😘</p>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
